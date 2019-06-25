@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <h1> User Details</h1>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    {{userForm.value | json}}
+
+    <hr/> 
+    {{userModel | json}}
+    
+    <div class="form-group row">
+      <label for="userID" class="col-md-1">User ID : </label>
+      <div class="col-md-11">
+          <input type="text" class="form-control" id="userId" name="userId" [(ngModel)]="userModel.id">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-md-1" >Name : </label>
+      <div class="col-md-11">
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userModel.name">
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-md-1">E-mail : </label>
+        <div class="col-md-11">
+            <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userModel.email">
+        </div>
+    </div>
+    <div ngModelGroup="address">
+            <div class="form-group row">
+                    <label for="addressId" class="col-md-1">Address ID :  </label>
+                    <div class="col-md-11">
+                        <input type="text" id="addressId" class="form-control" name="addressId" [(ngModel)]="addressModel.id">
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label for="address1" class="col-md-1">Address : </label>
+                    <div class="col-md-11">
+                        <input type="text" id="address1" class="form-control" name="address1" [(ngModel)]="addressModel.address1">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="address2" class="col-md-1"></label>
+                    <div class="col-md-11">
+                        <input type="text" class="form-control" name="address2" [(ngModel)]="addressModel.address2">
+                    </div>
+                
+                </div>
+                <div class="form-group row">
+                    <label for ="city" class="col-md-1">City : </label>
+                    <div class="col-md-11">
+                        <input type="text" id="city" class="form-control" name="city" [(ngModel)]="addressModel.city">
+                    </div>
+                    
+                </div>
+                <div class="form-group row">
+                    <label for="pinCode" class="col-md-1">Pin Code : </label>
+                    <div class="col-md-11">
+                        <input type="text" id="pinCode" class="form-control" name="pinCode" [(ngModel)]="addressModel.pinCode">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-1">State : </label>
+                    <div class="col-md-11">
+                        <input type="text" class="form-control" name="state" [(ngModel)]="addressModel.state">
+                    </div>
+                </div>
+
+    </div>
+    
+    
+    <button class="btn btn-primary" type="submit">Submit Form</button>
+
+  </form>
+</div>

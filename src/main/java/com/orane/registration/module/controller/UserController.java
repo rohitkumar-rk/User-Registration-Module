@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.orane.registration.module.entity.User;
 import com.orane.registration.module.repository.UserRepository;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 public class UserController {
 
@@ -85,6 +86,9 @@ public class UserController {
        
        return new ResponseEntity<>("Record Deleted", header,HttpStatus.OK);
     }
+	
+	
+	/*------------------------ End ------------------------ */
 	
 	
 	
