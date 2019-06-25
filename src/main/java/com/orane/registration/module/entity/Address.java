@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -16,13 +17,15 @@ public class Address {
 	@Id
 	private int id;
 	
-	
+	@Size(max=100)
 	@Column(name="address1")
 	private String address1;
 	
+	@Size(max=100)
 	@Column(name="address2")
 	private String address2;
 	
+	@Size(max=30)
 	@Column(name="city")
 	private String city;
 	
