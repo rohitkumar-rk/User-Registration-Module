@@ -1,11 +1,19 @@
-<div class="container-fluid">
+<!------------------ Without Routing ---------------------------- -->
+
+<!-- <div class="container-fluid">
+    <form (ngSubmit)="getUsers()">
+            <button class="btn btn-primary" type="submit">Get Users</button>
+    </form>
+</div> -->
+
+<div class="container-fluid">   
   <h1> User Details</h1>
   <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-    {{userForm.value | json}}
+    <!-- {{userForm.value | json}}
 
     <hr/> 
     {{userModel | json}}
-    
+     -->
     <div class="form-group row">
       <label for="userID" class="col-md-1">User ID : </label>
       <div class="col-md-11">
@@ -71,3 +79,48 @@
 
   </form>
 </div>
+<br><br><br>
+<table border="1" id="tableUserData">
+    <tr>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>E-Mail</th>
+        <th>Address ID</th>
+        <th>Address Line 1</th>
+        <th>Addess Line 2</th>
+        <th>City</th>
+        <th>Pin Code</th>
+        <th>State</th>
+        <th id="delete">Delete</th>
+        <!-- <th id="update">Update</th> -->
+    </tr>
+    <tr *ngFor="let x of users">
+        <td >{{x.id}}</td>
+        <td>{{x.name}}</td>
+        <td>{{hideEmail(x.email)}}</td>
+        <td>{{x.address[0].id}}</td>
+        <td>{{x.address[0].address1}}</td>
+        <td>{{x.address[0].address2}}</td>
+        <td>{{x.address[0].city}}</td>
+        <td>{{x.address[0].pinCode}}</td>
+        <td>{{x.address[0].state}}</td>
+        <td><button class="btn btn-primary" type="submit" (click)="delete(x.id)" (click)="deleteFromView(id)">Delete</button></td>
+        <!-- <td><button class="btn btn-primary" type="submit">Update</button></td> -->
+    </tr>
+</table>
+
+<!---------------------------- Ends here ---------------------------- -->
+
+<!------------------------------   Routing Code ------------------------ -->
+<!-- <h1>User Registration Module</h1>
+<nav>
+    <a routerLink="/add">Add User</a>
+    <a routerLink="/users">View Users</a>
+    <a routerLink="/update">Update Users</a>
+</nav>
+
+   
+<router-outlet></router-outlet> -->
+
+
+<!-- Ends here -->
