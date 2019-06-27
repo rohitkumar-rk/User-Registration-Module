@@ -1,5 +1,5 @@
 import { UserTableComponent } from './../user-table/user-table.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Address } from '../address';
 import { User } from '../user';
 import { EnrollmentService } from '../enrollment.service';
@@ -12,17 +12,17 @@ import { EnrollmentService } from '../enrollment.service';
 })
 export class FormComponent {
 
-  public userTableComponent: UserTableComponent;
+
   title = 'Add User';
   public users = [];
 
   addressModel = new Address(null,'','','',null,'');
   userModel = new User(null,'','',[]);
 
-
+  
   
   constructor(private _enrollmentService: EnrollmentService){}
-
+  
   onSubmit(){
     this.userModel.address.push(this.addressModel);
     console.log(this.userModel);
@@ -31,10 +31,9 @@ export class FormComponent {
        data => console.log('Succes!', data),
        error => console.error('Error!', error)
      )
-     //this.userTableComponent.ngOnInit();
-     this.userTableComponent.test();
+     
     }
-    
+
 
 }
 

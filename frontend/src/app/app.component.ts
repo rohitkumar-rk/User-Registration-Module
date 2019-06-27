@@ -31,7 +31,13 @@ export class AppComponent implements OnInit {
 
   
 
-  constructor(private _enrollmentService: EnrollmentService){}
+  constructor(private _enrollmentService: EnrollmentService){
+    setInterval(() => {
+      this._enrollmentService.getUsers()
+      .subscribe(data => this.users = data);
+    },1000
+    );
+  }
 
 //----------------  Submit Method to Add Data to DB and retrive-------
 
@@ -59,11 +65,12 @@ export class AppComponent implements OnInit {
 
 
     //------------------------- GEt MEthod to retrieve data from db and show in table --------
-    getUsers(){
-      this._enrollmentService.getUsers()
+    getUsers = async () => {
+      await this._enrollmentService.getUsers()
       .subscribe(data => this.users = data);  
     }
 
+    
     //----------------------------  Get Ends Here -----------------
 
 
