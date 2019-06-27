@@ -37,12 +37,16 @@ export class AppComponent implements OnInit {
 
   onSubmit(){
     this.userModel.address.push(this.addressModel);
+
     console.log(this.userModel);
+    this.addressModel = new Address(null,'','','',null,'');
     this._enrollmentService.enroll(this.userModel)
      .subscribe(
        data => {
-        console.log('Succes!', data);
+        console.log('success' , data) ;
+        this.addressModel = new Address(null,'','','',null,'');
         this.getUsers();
+        this.userModel = new User(null,'','',[]);
         // var table = document.getElementById("tableUserData");
         // table.style.display = "table";
         // console.log(this.users.length);
